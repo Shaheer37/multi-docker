@@ -19,3 +19,14 @@ after_success:
   - docker push shaheer37/multi-nginx
   - docker push shaheer37/multi-server
   - docker push shaheer37/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env-1
+  bucket_name: elasticbeanstalk-us-east-2-719851267684
+  bucket_path: docker_multi
+  on:
+    branch: master
+  
